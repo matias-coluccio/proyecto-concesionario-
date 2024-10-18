@@ -1,10 +1,15 @@
 package services;
 
+import DTO.VehiculoDTO;
 import models.Vehiculo;
+import mappers.VehiculoMapper;
 import repositories.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import exceptions.VehiculoNotFoundException;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class VehiculoService {
@@ -12,35 +17,32 @@ public class VehiculoService {
     @Autowired
     private VehiculoRepository vehiculoRepository;
 
-    public List<Vehiculo> getAllVehiculos() {
-        return vehiculoRepository.findAll();
+    public List<VehiculoDTO> getAllVehiculos() {
+        return vehiculoRepository.findAll().stream()
+                .map(VehiculoMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
-    public Vehiculo getVehiculoById(long id) {
-        return vehiculoRepository.findById( id).orElse(null);
+    public VehiculoDTO getVehiculoById(long id) {
+        Vehiculo vehiculo = vehiculoRepository.findById(id)
+                .orElseThrow(() -> new VehiculoNotFoundException("Vehículo con ID " + id + " no encontrado."));
+        return VehiculoMapper.toDTO(vehiculo);
     }
 
-    public Vehiculo postVehiculo(Vehiculo vehiculo) {
-        return vehiculoRepository.save(vehiculo);
+    public VehiculoDTO postVehiculo(VehiculoDTO vehiculoDTO) {
+        Vehiculo vehiculo = VehiculoMapper.toEntity(vehiculoDTO);
+        Vehiculo savedVehiculo = vehiculoRepository.save(vehiculo);
+        return VehiculoMapper.toDTO(savedVehiculo);
     }
 
-    public Vehiculo putVehiculo(long id, Vehiculo vehiculo) {
-        Vehiculo existingVehiculo = vehiculoRepository.findById(id).orElse(null);
-        if (existingVehiculo != null) {
-            existingVehiculo.setMarca(vehiculo.getMarca());
-            existingVehiculo.setImagenes(vehiculo.getImagenes());
-            existingVehiculo.setModelo(vehiculo.getModelo());
-            existingVehiculo.setAnio(vehiculo.getAnio());
-            existingVehiculo.setKilometros(vehiculo.getKilometros());
-            existingVehiculo.setCombustible(vehiculo.getCombustible());
-            existingVehiculo.setMotor(vehiculo.getMotor());
-            existingVehiculo.setTransmision(vehiculo.getTransmision());
-            existingVehiculo.setSegmento(vehiculo.getSegmento());
-            existingVehiculo.setDescripcion(vehiculo.getDescripcion());
-            existingVehiculo.setCantidadDePuertas(vehiculo.getCantidadDePuertas());
-            return vehiculoRepository.save(existingVehiculo);
-        }
-        return null;
+    public VehiculoDTO putVehiculo(long id, VehiculoDTO vehiculoDTO) {
+        Vehiculo existingVehiculo = vehiculoRepository.findById(id)
+                .orElseThrow(() -> new VehiculoNotFoundException("Vehículo con ID " + id + " no encontrado."));
+
+        Vehiculo vehiculoToUpdate = VehiculoMapper.toEntity(vehiculoDTO);
+        vehiculoToUpdate.setIdVehiculo(id);
+        Vehiculo updatedVehiculo = vehiculoRepository.save(vehiculoToUpdate);
+        return VehiculoMapper.toDTO(updatedVehiculo);
     }
 
     public void deleteVehiculo(long id) {

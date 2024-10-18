@@ -1,73 +1,51 @@
-package models;
+package DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
-@Entity
-public class Vehiculo {
-    @Id
-    long idVehiculo;
+public class VehiculoDTO {
+
+    private long idVehiculo;
 
     @NotNull
-    String imagenes;
+    private String imagenes;
 
     @Size(max = 50)
-    String marca;
+    private String marca;
 
     @NotNull
-    String modelo;
+    private String modelo;
 
     @Min(1900)
     @Max(2024)
-    int anio;
+    private int anio;
 
     @Min(0)
-    int kilometros;
+    private int kilometros;
 
     @NotNull
-    String combustible;
+    private String combustible;
 
     @NotNull
-    String motor;
+    private String motor;
 
     @NotNull
-    String transmision;
+    private String transmision;
 
     @NotNull
-    String segmento;
+    private String segmento;
 
     @NotNull
-    String descripcion;
+    private String descripcion;
 
     @Min(2)
     @Max(5)
-    int cantidadDePuertas;
+    private int cantidadDePuertas;
 
     @NotNull
-    String color;  // Campo agregado para el color
+    private String color;
 
-    public Vehiculo() {
-    }
-
-    public Vehiculo(long idVehiculo, String imagenes, String marca, String modelo, int anio, int kilometros, String combustible, String motor, String transmision, String segmento, String descripcion, int cantidadDePuertas, String color) {
-        this.idVehiculo = idVehiculo;
-        this.imagenes = imagenes;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anio = anio;
-        this.kilometros = kilometros;
-        this.combustible = combustible;
-        this.motor = motor;
-        this.transmision = transmision;
-        this.segmento = segmento;
-        this.descripcion = descripcion;
-        this.cantidadDePuertas = cantidadDePuertas;
-        this.color = color;
-    }
-
-    // Getters y setters
+    // Getters y Setters
 
     public long getIdVehiculo() {
         return idVehiculo;
