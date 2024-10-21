@@ -45,6 +45,19 @@ public class VehiculoDTO {
     @NotNull
     private String color;
 
+    @NotNull
+    String tipo; // usado o nuevo
+
+    @Min(0)
+    long precio;
+
+    @NotNull
+    String traccion; // delantera trasera o 4x4
+
+    @NotNull
+    String potencia; // 200 cv
+
+
     // Getters y Setters
 
     public long getIdVehiculo() {
@@ -149,5 +162,37 @@ public class VehiculoDTO {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getPotencia() {
+        return potencia;
+    }
+
+    public void setPotencia(String potencia) {
+        this.potencia = potencia;
+    }
+
+    public long getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(long precio) {
+        this.precio = precio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTraccion() {
+        return traccion;
+    }
+
+    public void setTraccion(String traccion) {
+        this.traccion = traccion;
     }
 }

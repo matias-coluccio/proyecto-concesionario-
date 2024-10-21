@@ -46,25 +46,41 @@ public class Vehiculo {
     int cantidadDePuertas;
 
     @NotNull
-    String color;  // Campo agregado para el color
+    String color;
+
+    @NotNull
+    String tipo; // usado o nuevo
+
+    @Min(0)
+    long precio;
+
+    @NotNull
+    String traccion; // delantera trasera o 4x4
+
+    @NotNull
+    String potencia; // 200 cv
 
     public Vehiculo() {
     }
 
-    public Vehiculo(long idVehiculo, String imagenes, String marca, String modelo, int anio, int kilometros, String combustible, String motor, String transmision, String segmento, String descripcion, int cantidadDePuertas, String color) {
-        this.idVehiculo = idVehiculo;
-        this.imagenes = imagenes;
-        this.marca = marca;
-        this.modelo = modelo;
+    public Vehiculo(int anio, int cantidadDePuertas, String color, String combustible, String descripcion, long idVehiculo, String imagenes, int kilometros, String marca, String modelo, String motor, String potencia, long precio, String segmento, String tipo, String traccion, String transmision) {
         this.anio = anio;
-        this.kilometros = kilometros;
-        this.combustible = combustible;
-        this.motor = motor;
-        this.transmision = transmision;
-        this.segmento = segmento;
-        this.descripcion = descripcion;
         this.cantidadDePuertas = cantidadDePuertas;
         this.color = color;
+        this.combustible = combustible;
+        this.descripcion = descripcion;
+        this.idVehiculo = idVehiculo;
+        this.imagenes = imagenes;
+        this.kilometros = kilometros;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.motor = motor;
+        this.potencia = potencia;
+        this.precio = precio;
+        this.segmento = segmento;
+        this.tipo = tipo;
+        this.traccion = traccion;
+        this.transmision = transmision;
     }
 
     // Getters y setters
@@ -171,5 +187,37 @@ public class Vehiculo {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getPotencia() {
+        return potencia;
+    }
+
+    public void setPotencia(String potencia) {
+        this.potencia = potencia;
+    }
+
+    public long getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(long precio) {
+        this.precio = precio;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTraccion() {
+        return traccion;
+    }
+
+    public void setTraccion(String traccion) {
+        this.traccion = traccion;
     }
 }

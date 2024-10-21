@@ -20,6 +20,10 @@ public class VehiculoMapper {
         dto.setDescripcion(vehiculo.getDescripcion());
         dto.setCantidadDePuertas(vehiculo.getCantidadDePuertas());
         dto.setColor(vehiculo.getColor());
+        dto.setTipo(vehiculo.getTipo());
+        dto.setPrecio(vehiculo.getPrecio());
+        dto.setTraccion(vehiculo.getTraccion());
+        dto.setPotencia(vehiculo.getPotencia());
         return dto;
     }
 
@@ -38,6 +42,10 @@ public class VehiculoMapper {
         vehiculo.setDescripcion(dto.getDescripcion());
         vehiculo.setCantidadDePuertas(dto.getCantidadDePuertas());
         vehiculo.setColor(dto.getColor());
+        vehiculo.setTipo(dto.getTipo());
+        vehiculo.setPrecio(dto.getPrecio());
+        vehiculo.setTraccion(dto.getTraccion());
+        vehiculo.setPotencia(dto.getPotencia());
         return vehiculo;
     }
 }
