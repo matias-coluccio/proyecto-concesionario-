@@ -1,7 +1,8 @@
 package DTO;
 
 import jakarta.validation.constraints.*;
-import org.antlr.v4.runtime.misc.NotNull;
+import jakarta.validation.constraints.NotNull;
+
 
 public class VehiculoDTO {
 

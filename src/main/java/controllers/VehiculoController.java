@@ -1,6 +1,7 @@
 package controllers;
 
 import DTO.VehiculoDTO;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import services.VehiculoService;
@@ -24,7 +25,7 @@ public class VehiculoController {
     }
 
     @PostMapping
-    public VehiculoDTO postVehiculo(@RequestBody VehiculoDTO vehiculoDTO) {
+    public VehiculoDTO postVehiculo(@Valid @RequestBody VehiculoDTO vehiculoDTO) {
         return vehiculoService.postVehiculo(vehiculoDTO);
     }
 
