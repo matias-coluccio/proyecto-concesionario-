@@ -1,63 +1,59 @@
 package DTO;
 
 import jakarta.validation.constraints.*;
-import jakarta.validation.constraints.NotNull;
-
 
 public class VehiculoDTO {
 
     private long idVehiculo;
 
-    @NotNull
+    @NotBlank
     private String imagenes;
 
     @Size(max = 50)
     private String marca;
 
-    @NotNull
+    @NotBlank
     private String modelo;
 
     @Min(1900)
-    @Max(2024)
     private int anio;
 
     @Min(0)
     private int kilometros;
 
-    @NotNull
+    @NotBlank
     private String combustible;
 
-    @NotNull
+    @NotBlank
     private String motor;
 
-    @NotNull
+    @NotBlank
     private String transmision;
 
-    @NotNull
+    @NotBlank
     private String segmento;
 
-    @NotNull
+    @NotBlank
     private String descripcion;
 
     @Min(2)
     @Max(5)
     private int cantidadDePuertas;
 
-    @NotNull
+    @NotBlank
     private String color;
 
-    @NotNull
-    String tipo; // usado o nuevo
+    @NotBlank
+    private String tipo; // usado o nuevo
 
-    @Min(0)
-    long precio;
+    @Positive
+    private long precio;
 
-    @NotNull
-    String traccion; // delantera trasera o 4x4
+    @NotBlank
+    private String traccion; // delantera, trasera o 4x4
 
-    @NotNull
-    String potencia; // 200 cv
-
+    @NotBlank
+    private String potencia; // ejemplo: "200 cv"
 
     // Getters y Setters
 
