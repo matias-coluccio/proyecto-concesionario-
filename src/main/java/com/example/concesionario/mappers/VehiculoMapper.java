@@ -1,7 +1,7 @@
-package mappers;
+package com.example.concesionario.mappers;
 
-import DTO.VehiculoDTO;
-import models.Vehiculo;
+import com.example.concesionario.DTO.VehiculoDTO;
+import com.example.concesionario.models.Vehiculo;
 
 public class VehiculoMapper {
 

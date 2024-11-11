@@ -1,58 +1,56 @@
-package models;
+package com.example.concesionario.DTO;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import jakarta.validation.constraints.NotNull;
 
 
-@Entity
-public class Vehiculo {
-    @Id
-    long idVehiculo;
+public class VehiculoDTO {
+
+    private long idVehiculo;
 
     @NotNull
-    String imagenes;
+    private String imagenes;
 
     @Size(max = 50)
-    String marca;
+    private String marca;
 
     @NotNull
-    String modelo;
+    private String modelo;
 
     @Min(1900)
     @Max(2024)
-    int anio;
+    private int anio;
 
     @Min(0)
-    int kilometros;
+    private int kilometros;
 
     @NotNull
-    String combustible;
+    private String combustible;
 
     @NotNull
-    String motor;
+    private String motor;
 
     @NotNull
-    String transmision;
+    private String transmision;
 
     @NotNull
-    String segmento;
+    private String segmento;
 
     @NotNull
-    String descripcion;
+    private String descripcion;
 
     @Min(2)
     @Max(5)
-    int cantidadDePuertas;
+    private int cantidadDePuertas;
 
     @NotNull
-    String color;
+    private String color;
 
     @NotNull
     String tipo; // usado o nuevo
 
     @Min(0)
+    @NotNull
     long precio;
 
     @NotNull
@@ -61,30 +59,8 @@ public class Vehiculo {
     @NotNull
     String potencia; // 200 cv
 
-    public Vehiculo() {
-    }
 
-    public Vehiculo(int anio, int cantidadDePuertas, String color, String combustible, String descripcion, long idVehiculo, String imagenes, int kilometros, String marca, String modelo, String motor, String potencia, long precio, String segmento, String tipo, String traccion, String transmision) {
-        this.anio = anio;
-        this.cantidadDePuertas = cantidadDePuertas;
-        this.color = color;
-        this.combustible = combustible;
-        this.descripcion = descripcion;
-        this.idVehiculo = idVehiculo;
-        this.imagenes = imagenes;
-        this.kilometros = kilometros;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.motor = motor;
-        this.potencia = potencia;
-        this.precio = precio;
-        this.segmento = segmento;
-        this.tipo = tipo;
-        this.traccion = traccion;
-        this.transmision = transmision;
-    }
-
-    // Getters y setters
+    // Getters y Setters
 
     public long getIdVehiculo() {
         return idVehiculo;

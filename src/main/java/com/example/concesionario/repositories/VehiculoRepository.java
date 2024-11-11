@@ -1,6 +1,6 @@
-package repositories;
+package com.example.concesionario.repositories;
 
-import models.Vehiculo;
+import com.example.concesionario.models.Vehiculo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package exceptions;
+package com.example.concesionario.exceptions;
 
 public class VehiculoNotFoundException extends RuntimeException {
     public VehiculoNotFoundException(String message) {

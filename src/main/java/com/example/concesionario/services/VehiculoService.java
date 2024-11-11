@@ -1,16 +1,17 @@
-package services;
+package com.example.concesionario.services;
 
-import DTO.VehiculoDTO;
-import models.Vehiculo;
-import mappers.VehiculoMapper;
-import repositories.VehiculoRepository;
+import com.example.concesionario.DTO.VehiculoDTO;
+import jakarta.transaction.Transactional;
+import com.example.concesionario.models.Vehiculo;
+import com.example.concesionario.mappers.VehiculoMapper;
+import com.example.concesionario.repositories.VehiculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import exceptions.VehiculoNotFoundException;
+import com.example.concesionario.exceptions.VehiculoNotFoundException;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Transactional
 @Service
 public class VehiculoService {
 

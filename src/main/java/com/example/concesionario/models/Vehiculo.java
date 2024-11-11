@@ -1,65 +1,113 @@
-package DTO;
+package com.example.concesionario.models;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import jakarta.validation.constraints.NotNull;
+@Table(name = "vehiculos")
+@Entity
+public class Vehiculo {
 
-
-public class VehiculoDTO {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_vehiculo")
     private long idVehiculo;
 
+    @Column(name = "imagenes", nullable = false)
     @NotNull
     private String imagenes;
 
-    @Size(max = 50)
+    @Column(name = "marca", length = 100, nullable = false)
+    @Size(max = 100)
+    @NotNull
     private String marca;
 
+    @Column(name = "modelo", length = 100, nullable = false)
     @NotNull
     private String modelo;
 
+    @Column(name = "anio", nullable = false)
     @Min(1900)
-    @Max(2024)
+    @NotNull
     private int anio;
 
+    @Column(name = "kilometros", nullable = false)
     @Min(0)
+    @NotNull
     private int kilometros;
 
+    @Column(name = "combustible", length = 100, nullable = false)
     @NotNull
     private String combustible;
 
+    @Column(name = "motor", length = 100, nullable = false)
     @NotNull
     private String motor;
 
+    @Column(name = "transmision", length = 100, nullable = false)
     @NotNull
     private String transmision;
 
+    @Column(name = "segmento", length = 100, nullable = false)
     @NotNull
     private String segmento;
 
+    @Column(name = "descripcion", length = 500, nullable = false)
     @NotNull
     private String descripcion;
 
-    @Min(2)
+    @Column(name = "cantidadDePuertas", nullable = false)
+    @Min(0)
     @Max(5)
+    @NotNull
     private int cantidadDePuertas;
 
+    @Column(name = "color", length = 100, nullable = false)
     @NotNull
     private String color;
 
+    @Column(name = "tipo", length = 100, nullable = false)
     @NotNull
-    String tipo; // usado o nuevo
+    private String tipo; // usado o nuevo
 
+    @Column(name = "precio", nullable = false)
     @Min(0)
-    long precio;
-
     @NotNull
-    String traccion; // delantera trasera o 4x4
+    private long precio;
 
+    @Column(name = "traccion", length = 100, nullable = false)
     @NotNull
-    String potencia; // 200 cv
+    private String traccion; // delantera, trasera o 4x4
+
+    @Column(name = "potencia", length = 100, nullable = false)
+    @NotNull
+    private String potencia;
+// 200 cv
 
 
-    // Getters y Setters
+    public Vehiculo() {
+    }
+
+    public Vehiculo(int anio, int cantidadDePuertas, String color, String combustible, String descripcion, long idVehiculo, String imagenes, int kilometros, String marca, String modelo, String motor, String potencia, long precio, String segmento, String tipo, String traccion, String transmision) {
+        this.anio = anio;
+        this.cantidadDePuertas = cantidadDePuertas;
+        this.color = color;
+        this.combustible = combustible;
+        this.descripcion = descripcion;
+        this.idVehiculo = idVehiculo;
+        this.imagenes = imagenes;
+        this.kilometros = kilometros;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.motor = motor;
+        this.potencia = potencia;
+        this.precio = precio;
+        this.segmento = segmento;
+        this.tipo = tipo;
+        this.traccion = traccion;
+        this.transmision = transmision;
+    }
+
+    // Getters y setters
 
     public long getIdVehiculo() {
         return idVehiculo;

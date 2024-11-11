@@ -1,10 +1,10 @@
-package controllers;
+package com.example.concesionario.controllers;
 
-import DTO.VehiculoDTO;
+import com.example.concesionario.DTO.VehiculoDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import services.VehiculoService;
+import com.example.concesionario.services.VehiculoService;
 import java.util.List;
 
 @RestController
@@ -14,7 +14,7 @@ public class VehiculoController {
     @Autowired
     private VehiculoService vehiculoService;
 
-    @GetMapping
+    @GetMapping //(value = "/vehiculos")
     public List<VehiculoDTO> getAllVehiculos() {
         return vehiculoService.getAllVehiculos();
     }
