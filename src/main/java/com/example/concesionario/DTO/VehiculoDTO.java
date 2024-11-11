@@ -1,4 +1,4 @@
-package com.example.concesionario.DTO;
+package DTO;
 
 import jakarta.validation.constraints.*;
 import jakarta.validation.constraints.NotNull;
@@ -50,7 +50,6 @@ public class VehiculoDTO {
     String tipo; // usado o nuevo
 
     @Min(0)
-    @NotNull
     long precio;
 
     @NotNull
